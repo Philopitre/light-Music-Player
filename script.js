@@ -122,14 +122,14 @@ const playNextSong = () => {
   }
 };
 
-const playPreviousSong = () => {
-  if (userData?.currentSong === null) return;
-  else {
-  const currentSongIndex = getCurrentSongIndex();
-  const previousSong = userData?.songs[currentSongIndex - 1];
+const playPreviousSong = () =>{
+   if (userData?.currentSong === null) return;
+   else {
+    const currentSongIndex = getCurrentSongIndex();
+    const previousSong = userData?.songs[currentSongIndex - 1];
 
-  playSong(previousSong.id);
-  }
+    playSong(previousSong.id);
+   }
 };
 
 const shuffle = () => {
@@ -176,12 +176,6 @@ const deleteSong = (id) => {
 
   }
 
-};
-
-  userData.songs = userData?.songs.filter((song) => song.id !== id);
-  renderSongs(userData?.songs);
-  highlightCurrentSong();
-  setPlayButtonAccessibleText();
 };
 
 const setPlayerDisplay = () => {
@@ -255,7 +249,6 @@ nextButton.addEventListener("click", playNextSong);
 previousButton.addEventListener("click", playPreviousSong);
 
 shuffleButton.addEventListener("click", shuffle);
-
 audio.addEventListener("ended", () => {
   const currentSongIndex = getCurrentSongIndex();
   const nextSongExists = userData?.songs[currentSongIndex + 1] !== undefined;
